@@ -84,16 +84,15 @@ class SplitPayTest extends \PHPUnit_Framework_TestCase
 
     public function testConstructWithInvalidAmount()
     {
-        //$this->expectException(PaysafeException::class);
-        //$this->expectExceptionCode(0);
-        //$this->expectExceptionMessage('Invalid value for property amount for class '
-        //    . 'Paysafe\CardPayments\SplitPay. Integer expected.');
+        $this->expectException(PaysafeException::class);
+        $this->expectExceptionCode(0);
+        $this->expectExceptionMessage('Invalid value for property amount for class '
+            . 'Paysafe\CardPayments\SplitPay. Integer expected.');
 
         // amount should be an int; an object should throw an exception
         $splitpay = new SplitPay([
             'amount' => new \stdClass(),
         ]);
-        var_dump($splitpay);
     }
 
     public function testConstructWithInvalidPercent()
