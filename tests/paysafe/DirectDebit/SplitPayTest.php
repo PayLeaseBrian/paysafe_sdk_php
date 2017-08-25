@@ -69,6 +69,12 @@ class SplitPayTest extends \PHPUnit_Framework_TestCase
         $this->assertThat($splitpay->toJson(), $this->equalTo('{"linkedAccount":"linked_account_id","amount":500}'));
     }
 
+    /**
+     * Paysafe validates parameter types using filter_var. There's a bug in filter_var fixed in 5.6.27
+     * see https://secure.php.net/ChangeLog-5.php#5.6.31
+     *
+     * @requires PHP 5.6.27
+     */
     public function testConstructWithInvalidLinkedAccount()
     {
         $this->expectException(PaysafeException::class);
@@ -82,6 +88,12 @@ class SplitPayTest extends \PHPUnit_Framework_TestCase
         ]);
     }
 
+    /**
+     * Paysafe validates parameter types using filter_var. There's a bug in filter_var fixed in 5.6.27
+     * see https://secure.php.net/ChangeLog-5.php#5.6.31
+     *
+     * @requires PHP 5.6.27
+     */
     public function testConstructWithInvalidAmount()
     {
         $this->expectException(PaysafeException::class);
@@ -95,6 +107,12 @@ class SplitPayTest extends \PHPUnit_Framework_TestCase
         ]);
     }
 
+    /**
+     * Paysafe validates parameter types using filter_var. There's a bug in filter_var fixed in 5.6.27
+     * see https://secure.php.net/ChangeLog-5.php#5.6.31
+     *
+     * @requires PHP 5.6.27
+     */
     public function testConstructWithInvalidPercent()
     {
         $this->expectException(PaysafeException::class);
